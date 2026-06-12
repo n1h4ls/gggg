@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Task Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>Task Tracker</h1>
+        <p>Plan, organize, and keep your tasks on track.</p>
+      </div>
+      <button id="newTaskBtn" class="primary-button">New Task</button>
+    </header>
+
+    <main class="app-grid">
+      <section class="panel panel-form hidden" id="taskFormPanel">
+        <div class="panel-header">
+          <h2>Create / Edit Task</h2>
+          <button id="closeFormBtn" class="icon-button">✕</button>
+        </div>
+        <form id="taskForm">
+          <label>Title <input type="text" id="taskTitle" required maxlength="80" /></label>
+          <label>Description <textarea id="taskDescription" rows="4" maxlength="240"></textarea></label>
+          <label>Due Date <input type="date" id="taskDueDate" required /></label>
+          <label>Due Time <input type="time" id="taskDueTime" /></label>
+          <label>Category <input type="text" id="taskCategory" placeholder="Work, Home, Study" /></label>
+          <label>Tags <input type="text" id="taskTags" placeholder="comma-separated" /></label>
+          <label>Priority
+            <select id="taskPriority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary-button">Save Task</button>
+            <button type="button" id="clearFormBtn" class="secondary-button">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel panel-tasks">
+        <div class="panel-header">
+          <h2>Task Inbox</h2>
+          <span id="taskCount">0 tasks</span>
+        </div>
+
+        <div class="filters">
+          <label>Search<input id="searchInput" type="search" placeholder="Search tasks" /></label>
+          <label>Category<select id="categoryFilter"><option value="all">All</option></select></label>
+          <label>Priority<select id="priorityFilter"><option value="all">All</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="urgent">Urgent</option></select></label>
+          <label>Status<select id="statusFilter"><option value="all">All</option><option value="pending">Pending</option><option value="completed">Completed</option></select></label>
+        </div>
+
+        <div id="reminderBanner" class="reminder-banner hidden"></div>
+        <div id="taskList" class="task-list"></div>
+      </section>
+
+      <section class="panel panel-calendar">
+        <div class="panel-header">
+          <h2>Calendar View</h2>
+          <div class="calendar-controls">
+            <button id="prevMonth">‹</button>
+            <span id="monthLabel"></span>
+            <button id="nextMonth">›</button>
+          </div>
+        </div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
