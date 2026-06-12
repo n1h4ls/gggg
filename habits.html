@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="habits.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Habit Tracker</h1>
+      <p>Add habits, mark them done for today, and view today's status.</p>
+    </header>
+
+    <section class="add-habit">
+      <input id="habitName" type="text" placeholder="New habit name" maxlength="80" />
+      <button id="addHabitBtn">Add Habit</button>
+    </section>
+
+    <section class="habits-list">
+      <h2>Today's Habits</h2>
+      <ul id="habits"></ul>
+    </section>
+
+    <footer>
+      <small>Stored locally in your browser.</small>
+    </footer>
+  </main>
+  <script src="habits.js"></script>
+</body>
+</html>
